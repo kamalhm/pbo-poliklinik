@@ -29,5 +29,9 @@ public class Ruangan {
         } else
             System.out.println("Ruangan sudah memenuhi kapasitas");
     }
+    
+    public void hpsDokter() {
+        jumlahDokter--;
+    }
 
 }

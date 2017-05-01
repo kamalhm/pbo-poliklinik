@@ -26,6 +26,7 @@ public class Periksa {
         this.indikasi = indikasi;
         this.rekomendasi = rekomendasi;
         idPeriksa++;
+        
     }
 
     public String getNamaDokter() {
