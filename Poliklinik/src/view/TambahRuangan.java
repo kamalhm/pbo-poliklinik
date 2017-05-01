@@ -37,7 +37,7 @@ public class TambahRuangan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("ID PASIEN");
+        jLabel2.setText("Nomor");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,11 +45,11 @@ public class TambahRuangan extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("NAMA");
+        jLabel3.setText("Kapasitas");
 
-        jButton1.setText("Tambah Pasien");
+        jButton1.setText("TambahRuangan");
 
-        jLabel1.setText("FORM TAMBAH PASIEN");
+        jLabel1.setText("TAMBAH RUANGAN");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -62,18 +62,15 @@ public class TambahRuangan extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(39, 39, 39)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1)
-                        .addGap(76, 76, 76))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2)
-                        .addGap(215, 215, 215))))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(jTextField2))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1)
+                .addGap(76, 76, 76))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

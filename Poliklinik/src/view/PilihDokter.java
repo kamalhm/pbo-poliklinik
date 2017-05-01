@@ -31,13 +31,13 @@ public class PilihDokter extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        IDPasienFieldA = new javax.swing.JTextField();
+        txFieldIDPasien = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        DokterList = new javax.swing.JList<>();
+        listDokter = new javax.swing.JList<>();
         DaftarButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        TanggalPeriksaField = new javax.swing.JTextField();
+        txFieldTanggalKonsul = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,12 +49,12 @@ public class PilihDokter extends javax.swing.JFrame {
 
         jLabel5.setText("Pilih Tanggal Konsultasi  :");
 
-        DokterList.setModel(new javax.swing.AbstractListModel<String>() {
+        listDokter.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(DokterList);
+        jScrollPane1.setViewportView(listDokter);
 
         DaftarButton.setText("Daftar");
 
@@ -96,9 +96,9 @@ public class PilihDokter extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDPasienFieldA)
+                            .addComponent(txFieldIDPasien)
                             .addComponent(jScrollPane1)
-                            .addComponent(TanggalPeriksaField)))
+                            .addComponent(txFieldTanggalKonsul)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 18, Short.MAX_VALUE)))
@@ -112,11 +112,11 @@ public class PilihDokter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(IDPasienFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldIDPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TanggalPeriksaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldTanggalKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
@@ -187,9 +187,6 @@ public class PilihDokter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DaftarButton;
-    private javax.swing.JList<String> DokterList;
-    private javax.swing.JTextField IDPasienFieldA;
-    private javax.swing.JTextField TanggalPeriksaField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -197,5 +194,8 @@ public class PilihDokter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listDokter;
+    private javax.swing.JTextField txFieldIDPasien;
+    private javax.swing.JTextField txFieldTanggalKonsul;
     // End of variables declaration//GEN-END:variables
 }
