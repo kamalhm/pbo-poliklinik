@@ -12,29 +12,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import view.Pilihan;
+import view.Login;
 
-public class ControllerPilihan implements ActionListener {
-    private Pilihan view;
-    
-    public ControllerPilihan() {
-       view = new Pilihan();
-       view.setVisible(true);
-       view.addListener(this);
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        Object source = ae.getSource();
-        if (source.equals(view.getBtnAddDokter())) {
-            
-        } else if (source.equals(view.getBtnAddPasien())) {
-            
-        } else if (source.equals(view.getBtnAddPeriksa())) {
-            
-        } else if (source.equals(view.getBtnAddRuangan())) {
-            
-        }
-    }
+public class ControllerPilihan {
     
 }

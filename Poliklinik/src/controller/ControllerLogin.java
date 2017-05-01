@@ -13,8 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import view.Login;
-import view.Pilihan;
-
 public class ControllerLogin implements ActionListener {
     private Login view;
     
@@ -30,8 +28,6 @@ public class ControllerLogin implements ActionListener {
         if (source.equals(view.getBtnLogin())) {
             if ((view.getUsername().equals("admin")) && (view.getPassword().equals("adminpoli"))) {
                 JOptionPane.showMessageDialog(null, "Login berhasil.");
-                ControllerPilihan cp = new ControllerPilihan();
-                view.dispose();
             }
             else {
                 JOptionPane.showMessageDialog(null, "Username atau Password salah.");
