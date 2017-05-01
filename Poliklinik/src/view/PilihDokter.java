@@ -31,13 +31,13 @@ public class PilihDokter extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txFieldIDPasien = new javax.swing.JTextField();
+        txFieldID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         listDokter = new javax.swing.JList<>();
-        DaftarButton = new javax.swing.JButton();
+        btnDaftar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txFieldTanggalKonsul = new javax.swing.JTextField();
+        txFieldTanggal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +56,7 @@ public class PilihDokter extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listDokter);
 
-        DaftarButton.setText("Daftar");
+        btnDaftar.setText("Daftar");
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -88,7 +88,7 @@ public class PilihDokter extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(DaftarButton))
+                        .addComponent(btnDaftar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
@@ -96,9 +96,9 @@ public class PilihDokter extends javax.swing.JFrame {
                             .addComponent(jLabel4))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txFieldIDPasien)
+                            .addComponent(txFieldID)
                             .addComponent(jScrollPane1)
-                            .addComponent(txFieldTanggalKonsul)))
+                            .addComponent(txFieldTanggal)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 18, Short.MAX_VALUE)))
@@ -112,17 +112,17 @@ public class PilihDokter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txFieldIDPasien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txFieldTanggalKonsul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(DaftarButton)
+                .addComponent(btnDaftar)
                 .addGap(114, 114, 114))
         );
 
@@ -186,7 +186,7 @@ public class PilihDokter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton DaftarButton;
+    private javax.swing.JButton btnDaftar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -195,7 +195,7 @@ public class PilihDokter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listDokter;
-    private javax.swing.JTextField txFieldIDPasien;
-    private javax.swing.JTextField txFieldTanggalKonsul;
+    private javax.swing.JTextField txFieldID;
+    private javax.swing.JTextField txFieldTanggal;
     // End of variables declaration//GEN-END:variables
 }

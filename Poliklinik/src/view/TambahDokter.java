@@ -30,9 +30,9 @@ public class TambahDokter extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        KesanggupanField = new javax.swing.JTextField();
-        AddDokterButton = new javax.swing.JButton();
+        txFieldNama = new javax.swing.JTextField();
+        txFieldJumlah = new javax.swing.JTextField();
+        btnAdd = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,13 +43,13 @@ public class TambahDokter extends javax.swing.JFrame {
 
         jLabel17.setText("Jumlah Kesanggupan");
 
-        KesanggupanField.addActionListener(new java.awt.event.ActionListener() {
+        txFieldJumlah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                KesanggupanFieldActionPerformed(evt);
+                txFieldJumlahActionPerformed(evt);
             }
         });
 
-        AddDokterButton.setText("Add Dokter");
+        btnAdd.setText("Add Dokter");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel15.setText("Tambah Dokter");
@@ -62,7 +62,7 @@ public class TambahDokter extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(AddDokterButton))
+                        .addComponent(btnAdd))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap(139, Short.MAX_VALUE)
                         .addComponent(jLabel15)
@@ -74,8 +74,8 @@ public class TambahDokter extends javax.swing.JFrame {
                             .addComponent(jLabel16))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5)
-                            .addComponent(KesanggupanField))))
+                            .addComponent(txFieldNama)
+                            .addComponent(txFieldJumlah))))
                 .addGap(42, 42, 42))
         );
         jPanel5Layout.setVerticalGroup(
@@ -86,13 +86,13 @@ public class TambahDokter extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(KesanggupanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txFieldJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(AddDokterButton)
+                .addComponent(btnAdd)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -120,9 +120,9 @@ public class TambahDokter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void KesanggupanFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KesanggupanFieldActionPerformed
+    private void txFieldJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txFieldJumlahActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_KesanggupanFieldActionPerformed
+    }//GEN-LAST:event_txFieldJumlahActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,12 +161,12 @@ public class TambahDokter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AddDokterButton;
-    private javax.swing.JTextField KesanggupanField;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txFieldJumlah;
+    private javax.swing.JTextField txFieldNama;
     // End of variables declaration//GEN-END:variables
 }
