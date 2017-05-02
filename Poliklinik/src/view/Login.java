@@ -7,7 +7,7 @@ package view;
 
 import javax.swing.JOptionPane;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mahmud
