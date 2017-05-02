@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
+
 /**
  *
  * @author Mahmud
@@ -156,6 +160,26 @@ public class TambahRuangan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txFieldNomorActionPerformed
 
+    public String getNomor(){
+        return txFieldNomor.getText();
+    }
+    
+    public int getKapasitas(){
+        return Integer.parseInt(txFieldNomor.getText());
+    }
+    
+    public void resetView(){
+        txFieldNomor.setText("");
+        txFieldKapasitas.setText("");
+    }
+    
+    public JButton getBtnTambahRuangan(){
+        return btnAddRuang;
+    }
+    
+    public void addListener(ActionListener e){
+        btnAddRuang.addActionListener(e);
+    }
     /**
      * @param args the command line arguments
      */
