@@ -18,8 +18,9 @@ public class ControllerTambahDokter implements ActionListener {
     
     public ControllerTambahDokter() {
         view = new TambahDokter();
-        view.setVisible(true);
+        
         view.addListener(this);
+        view.setVisible(true);
     }
     
     @Override

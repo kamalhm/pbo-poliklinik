@@ -16,8 +16,8 @@ import view.Login;
 import view.Pilihan;
 public class ControllerLogin implements ActionListener {
     private Login view;
-    private String id = "admin";
-    private String pass = "adminpoli";
+    private String id = "a";
+    private String pass = "a";
     public ControllerLogin() {
         view = new Login();
         view.setVisible(true);

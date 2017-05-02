@@ -12,14 +12,15 @@ import view.TambahPasien;
  *
  * @author User
  */
-public class ControllerTambahPasien implements ActionListener{
+public class ControllerTambahPasien implements ActionListener {
 
     private TambahPasien view;
     
     public ControllerTambahPasien(){
         view = new TambahPasien();
-        view.AddListener(this);
+        view.addListener(this);
         view.setVisible(true);
+        
     }
     @Override
     public void actionPerformed(ActionEvent e) {

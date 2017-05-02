@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author Mahmud
@@ -160,6 +163,18 @@ public class TambahRuangan extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+    /**
+     * @param args the command line arguments
+     */
+    public JButton getBtnAddRuang() {
+        return btnAddRuang;
+    }
+    
+
+    public void addListener(ActionListener al) {
+        btnAddRuang.addActionListener(al);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRuang;

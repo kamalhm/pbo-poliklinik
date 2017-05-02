@@ -5,6 +5,9 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author Mahmud
@@ -141,6 +144,19 @@ public class TambahPeriksa extends javax.swing.JPanel {
     private void txFieldPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txFieldPasienActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txFieldPasienActionPerformed
+
+    public JButton getBtnAdd() {
+        return btnAdd;
+    }
+
+    public JButton getBtnBack() {
+        return btnBack;
+    }
+    
+    public void addListener(ActionListener al) {
+        btnAdd.addActionListener(al);
+        btnBack.addActionListener(al);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
