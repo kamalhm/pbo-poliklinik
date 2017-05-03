@@ -13,10 +13,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import view.Pilihan;
-import view.TambahDokter;
-import view.TambahPasien;
-import view.TambahPasien;
-import view.TambahRuangan;
+//import view.TambahDokter;
+//import view.TambahPasien;
+//import view.TambahPasien;
+//import view.TambahRuangan;
+//import view.TambahPeriksa;
 
 public class ControllerPilihan implements ActionListener {
     private Pilihan view;
@@ -41,6 +42,9 @@ public class ControllerPilihan implements ActionListener {
             view.dispose();
         } else if (source.equals(view.getBtnAddRuangan())) {
             ControllerTambahRuangan ctr = new ControllerTambahRuangan();
+            view.dispose();
+        } else if (source.equals(view.getBtnTampilanPasien())) {
+            ControllerTampilanPasien ctp = new ControllerTampilanPasien();
             view.dispose();
         }
     }

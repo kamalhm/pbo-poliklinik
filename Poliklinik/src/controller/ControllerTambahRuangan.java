@@ -8,6 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TambahRuangan;
+
 import javax.swing.JOptionPane;
 /**
  *
@@ -24,7 +25,13 @@ public class ControllerTambahRuangan implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
+        if (source.equals(view.getBtnAddRuang())) {
+            
+        } else if (source.equals(view.getBtnBack())) {
+            ControllerPilihan ch = new ControllerPilihan();
+            view.dispose();
+        }
     }
 }

@@ -16,17 +16,20 @@ public class ControllerTampilanPasien implements ActionListener {
     
     public ControllerTampilanPasien() {
         view = new TampilanPasien();
-        view.setVisible(true);
         view.addListener(this);
+        view.setVisible(true);
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (source.equals(view.getBtnCariPasien())) {
+        if (source.equals(view.getBtnCariIDPasien())) {
             
-        } else if (source.equals(view.getBtnCariRuang())) {
+        } else if (source.equals(view.getBtnCariNoRuangan())) {
             
+        } else if (source.equals(view.getBtnMenuAdmin())) {
+            ControllerPilihan ch = new ControllerPilihan();
+            view.dispose();
         }
     }
 }

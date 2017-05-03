@@ -23,8 +23,14 @@ public class ControllerTambahPasien implements ActionListener {
         
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
+        if (source.equals(view.getBtnAdd())) {
+            
+        } else if (source.equals(view.getBtnBack())) {
+            ControllerPilihan ch = new ControllerPilihan();
+            view.dispose();
+        }
     }
     
 }

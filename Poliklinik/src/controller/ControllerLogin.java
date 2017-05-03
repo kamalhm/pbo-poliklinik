@@ -29,7 +29,7 @@ public class ControllerLogin implements ActionListener {
         Object source = ae.getSource();
         if (source.equals(view.getBtnLogin())) {
             if ((view.getUsername().equals(id)) && (view.getPassword().equals(pass))) {
-                JOptionPane.showMessageDialog(null, "Login berhasil.");
+                //JOptionPane.showMessageDialog(null, "Login berhasil.");
                 ControllerPilihan ch = new ControllerPilihan();
                 view.dispose();
             }

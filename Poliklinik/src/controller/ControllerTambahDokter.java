@@ -18,7 +18,6 @@ public class ControllerTambahDokter implements ActionListener {
     
     public ControllerTambahDokter() {
         view = new TambahDokter();
-        
         view.addListener(this);
         view.setVisible(true);
     }
@@ -27,6 +26,11 @@ public class ControllerTambahDokter implements ActionListener {
     public void actionPerformed (ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
+            
+        } else if (source.equals(view.getBtnBack())) {
+            
+            ControllerPilihan ch = new ControllerPilihan();
+            view.dispose();
             
         }
     }

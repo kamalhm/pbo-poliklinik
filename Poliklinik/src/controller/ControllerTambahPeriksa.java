@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import view.TambahPeriksa;
 /**
  *
- * @author User
+ * @author Mahmud
  */
 public class ControllerTambahPeriksa implements ActionListener{
 
@@ -23,8 +23,15 @@ public class ControllerTambahPeriksa implements ActionListener{
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
+        if (source.equals(view.getBtnAdd())) {
+            
+        } else if (source.equals(view.getBtnBack())) {
+            ControllerPilihan cp = new ControllerPilihan();
+            view.dispose();
+        }
     }
     
 }
+
