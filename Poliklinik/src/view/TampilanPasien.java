@@ -193,12 +193,12 @@ public class TampilanPasien extends javax.swing.JFrame {
         return btnMenuAdmin;
     }
 
-    public JTextField getTxFieldIDCari() {
-        return txFieldIDCari;
+    public String getTxFieldIDCari() {
+        return txFieldIDCari.getText();
     }
 
-    public JTextField getTxFieldRuangan() {
-        return txFieldRuangan;
+    public String getTxFieldRuangan() {
+        return txFieldRuangan.getText();
     }
 
     

@@ -8,7 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TambahRuangan;
-
+import model.Ruangan;
 import javax.swing.JOptionPane;
 /**
  *
@@ -28,7 +28,8 @@ public class ControllerTambahRuangan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAddRuang())) {
-            
+            Ruangan rua = new Ruangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
+            //app.saveListRuangan(app.addRuangan(rua));
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan ch = new ControllerPilihan();
             view.dispose();

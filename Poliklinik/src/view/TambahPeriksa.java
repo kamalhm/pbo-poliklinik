@@ -150,24 +150,24 @@ public class TambahPeriksa extends javax.swing.JFrame {
         return btnBack;
     }
 
-    public JTextField getTxFieldDokter() {
-        return txFieldDokter;
+    public String getTxFieldDokter() {
+        return txFieldDokter.getText();
     }
 
-    public JTextField getTxFieldIndikasi() {
-        return txFieldIndikasi;
+    public String getTxFieldIndikasi() {
+        return txFieldIndikasi.getText();
     }
 
-    public JTextField getTxFieldPasien() {
-        return txFieldPasien;
+    public String getTxFieldPasien() {
+        return txFieldPasien.getText();
     }
 
-    public JTextField getTxFieldRekomendasi() {
-        return txFieldRekomendasi;
+    public String getTxFieldRekomendasi() {
+        return txFieldRekomendasi.getText();
     }
 
-    public JTextField getTxFieldTanggalPeriksa() {
-        return txFieldTanggalPeriksa;
+    public String getTxFieldTanggalPeriksa() {
+        return txFieldTanggalPeriksa.getText();
     }
     
     

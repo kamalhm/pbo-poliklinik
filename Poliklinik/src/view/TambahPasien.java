@@ -132,12 +132,12 @@ public class TambahPasien extends javax.swing.JFrame {
         return btnBack;
     }
 
-    public JTextField getTxFieldID() {
-        return txFieldID;
+    public String getTxFieldID() {
+        return txFieldID.getText();
     }
 
-    public JTextField getTxFieldNama() {
-        return txFieldNama;
+    public String getTxFieldNama() {
+        return txFieldNama.getText();
     }
     
     

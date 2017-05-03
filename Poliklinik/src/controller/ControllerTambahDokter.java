@@ -31,7 +31,8 @@ public class ControllerTambahDokter implements ActionListener {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
             Dokter dok = new Dokter(view.getTxFieldNama());
-            app.saveListDokter(app.addDokter(dok));
+            //app.saveListDokter(app.addDokter(dok));
+            JOptionPane.showMessageDialog(null, "Dokter berhasil ditambahkan.");
         } else if (source.equals(view.getBtnBack())) {
             
             ControllerPilihan ch = new ControllerPilihan();

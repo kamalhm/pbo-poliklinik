@@ -8,6 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TambahPeriksa;
+import model.Periksa;
 /**
  *
  * @author Mahmud
@@ -26,7 +27,7 @@ public class ControllerTambahPeriksa implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            
+            //Periksa per = new Periksa(
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan cp = new ControllerPilihan();
             view.dispose();
