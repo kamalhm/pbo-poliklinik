@@ -8,7 +8,6 @@ package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -92,19 +91,50 @@ public class Database {
         }
     }
 
-    public ArrayList<Dokter> loadDokter() throws SQLException {
+    public ArrayList<Dokter> loadDokter(){
         try {
             ArrayList<Dokter> listDokter = new ArrayList<>();
             String query = "select * from dokter";
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
                 Dokter d = new Dokter(rs.getString(1));
+                Statement statement2 = connection.createStatement();
+                String query2 = "select * from dokter where NamaD=" + d.getNama();
+                ResultSet rs2 = statement2.executeQuery(query2);
+                while (rs2.next()) {
+                    Pasien p = new Pasien(rs2.getString(1));
+                    d.addPasien(p);
+                }
                 listDokter.add(d);
             }
             return listDokter;
+            
         } catch (Exception e) {
             throw new IllegalArgumentException("terjadi kesalahan bung");
         }
 
     }
+    
+    public ArrayList<Pasien> loadPasien(){
+        try {
+            ArrayList<Pasien> listPasien = new ArrayList<>();
+            String query = "select * from pasien";
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                Pasien p = new Pasien(rs.getString(1));
+                Statement statement2 = connection.createStatement();
+                String query2 = "select * from periksa where IDPasien=" + p.getIDPasien();
+                ResultSet rs2 = statement2.executeQuery(query2);
+                while (rs2.next()) {                    
+                    p.addPeriksa(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5));
+                }
+                listPasien.add(p);
+            }
+            return listPasien;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("terjadi kesalahan bung");
+        }
+
+    }
+    
 }
