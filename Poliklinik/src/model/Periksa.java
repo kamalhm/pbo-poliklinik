@@ -29,6 +29,10 @@ public class Periksa {
         
     }
 
+    public int getIDPeriksa(){
+        return idPeriksa;
+    }
+    
     public String getNamaDokter() {
         return namaDokter;
     }
