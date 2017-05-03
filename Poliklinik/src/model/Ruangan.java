@@ -34,4 +34,11 @@ public class Ruangan {
         jumlahDokter--;
     }
 
+    public String getNomor(){
+        return nomor;
+    }
+    
+    public int getKapasitas(){
+        return kapasitas;
+    }
 }

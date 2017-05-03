@@ -21,6 +21,9 @@ public class Pasien {
         idPasien++;
     }
 
+    public int getIDPasien(){
+        return idPasien;
+    }
     public String getNama() {
         return nama;
     }
