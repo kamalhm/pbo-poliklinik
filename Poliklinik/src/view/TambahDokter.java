@@ -7,6 +7,7 @@ package view;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
 
 /**
  *
@@ -148,7 +149,14 @@ public class TambahDokter extends javax.swing.JFrame {
     public JButton getBtnBack() {
         return btnBack;
     }
-    
+
+    public String getTxFieldJumlah() {
+        return txFieldJumlah.getText();
+    }
+
+    public String getTxFieldNama() {
+        return txFieldNama.getText();
+    }
     
     public void addListener(ActionListener al) {
         btnAdd.addActionListener(al);

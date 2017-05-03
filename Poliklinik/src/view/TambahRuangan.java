@@ -7,6 +7,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -181,6 +182,15 @@ public class TambahRuangan extends javax.swing.JFrame {
     public JButton getBtnBack() {
         return btnBack;
     }
+
+    public JTextField getTxFieldKapasitas() {
+        return txFieldKapasitas;
+    }
+
+    public JTextField getTxFieldNomor() {
+        return txFieldNomor;
+    }
+    
     
 
     public void addListener(ActionListener al) {

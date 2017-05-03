@@ -7,6 +7,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -166,9 +167,15 @@ public class PilihDokter extends javax.swing.JFrame {
     public JButton getBtnBack() {
         return btnBack;
     }
-    
-    
 
+    public JTextField getTxFieldID() {
+        return txFieldID;
+    }
+
+    public JTextField getTxFieldTanggal() {
+        return txFieldTanggal;
+    }
+    
     public void addListener(ActionListener al) {
         btnDaftar.addActionListener(al);
         btnBack.addActionListener(al);

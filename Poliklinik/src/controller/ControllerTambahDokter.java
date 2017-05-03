@@ -8,15 +8,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import view.TambahDokter;
+import model.Dokter;
+import model.Aplikasi;
 
 /**
  *
  * @author Mahmud
  */
 public class ControllerTambahDokter implements ActionListener {
+    private Aplikasi app;
     private TambahDokter view;
     
     public ControllerTambahDokter() {
+        app = new Aplikasi();
         view = new TambahDokter();
         view.addListener(this);
         view.setVisible(true);
@@ -26,7 +30,8 @@ public class ControllerTambahDokter implements ActionListener {
     public void actionPerformed (ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            
+            Dokter dok = new Dokter(view.getTxFieldNama());
+            app.saveListDokter(app.addDokter(dok));
         } else if (source.equals(view.getBtnBack())) {
             
             ControllerPilihan ch = new ControllerPilihan();

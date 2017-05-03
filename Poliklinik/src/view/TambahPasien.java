@@ -7,6 +7,7 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -130,6 +131,15 @@ public class TambahPasien extends javax.swing.JFrame {
     public JButton getBtnBack() {
         return btnBack;
     }
+
+    public JTextField getTxFieldID() {
+        return txFieldID;
+    }
+
+    public JTextField getTxFieldNama() {
+        return txFieldNama;
+    }
+    
     
     
 
