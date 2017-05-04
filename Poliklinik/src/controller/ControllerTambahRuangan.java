@@ -10,11 +10,13 @@ import java.awt.event.ActionListener;
 import view.TambahRuangan;
 import model.Ruangan;
 import javax.swing.JOptionPane;
+import model.Aplikasi;
 /**
  *
  * @author User
  */
 public class ControllerTambahRuangan implements ActionListener{
+    private Aplikasi app;
     private TambahRuangan view;
     
     public ControllerTambahRuangan(){
@@ -29,7 +31,7 @@ public class ControllerTambahRuangan implements ActionListener{
         Object source = ae.getSource();
         if (source.equals(view.getBtnAddRuang())) {
             Ruangan rua = new Ruangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
-            //app.saveListRuangan(app.addRuangan(rua));
+            app.addRuangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan ch = new ControllerPilihan();
             view.dispose();

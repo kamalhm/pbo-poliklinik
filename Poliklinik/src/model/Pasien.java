@@ -17,15 +17,18 @@ public class Pasien {
     private static int idPasien = 0;
     private int noPasien;
     
-    public Pasien(int id,String nama){
-        this.nama = nama;
-        this.noPasien = id;
-    }
     
     public Pasien(String nama) {
         this.nama = nama;
         idPasien++;
     }
+    
+    
+    public Pasien(int id,String nama){
+        this.nama = nama;
+        this.noPasien = id;
+    }
+    
 
     public int getNoPasien() {
         return noPasien;

@@ -8,13 +8,15 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TambahPeriksa;
-import model.Periksa;
+import model.Aplikasi;
+import model.*;
+
 /**
  *
  * @author Mahmud
  */
 public class ControllerTambahPeriksa implements ActionListener{
-
+    private Aplikasi app;
     private TambahPeriksa view;
     
     public ControllerTambahPeriksa(){
@@ -22,12 +24,14 @@ public class ControllerTambahPeriksa implements ActionListener{
         view.addListener(this);
         view.setVisible(true);
     }
-    
+    public Dokter textToDokter(String text) {
+        
+    }
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            //Periksa per = new Periksa(
+            app.addPeriksa(view.getTxFieldDokter(), view.getTxFieldPasien(), view.getTxFieldTanggalPeriksa(), view.getTxFieldIndikasi(), view.getTxFieldRekomendasi());
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan cp = new ControllerPilihan();
             view.dispose();

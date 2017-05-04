@@ -15,6 +15,7 @@ import model.Aplikasi;
  *
  * @author Mahmud
  */
+
 public class ControllerTambahDokter implements ActionListener {
     private Aplikasi app;
     private TambahDokter view;
@@ -30,8 +31,9 @@ public class ControllerTambahDokter implements ActionListener {
     public void actionPerformed (ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            Dokter dok = new Dokter(view.getTxFieldNama());
-            //app.saveListDokter(app.addDokter(dok));
+            // Dokter dok = new Dokter(view.getTxFieldNama()); 
+            // konsep mvc
+            app.addDokter(view.getTxFieldNama());
             JOptionPane.showMessageDialog(null, "Dokter berhasil ditambahkan.");
         } else if (source.equals(view.getBtnBack())) {
             

@@ -12,6 +12,7 @@ import view.TampilanPasien;
  * @author Mahmud
  */
 public class ControllerTampilanPasien implements ActionListener {
+    //private Aplikasi app;
     private TampilanPasien view;
     
     public ControllerTampilanPasien() {
