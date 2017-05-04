@@ -18,6 +18,7 @@ public class Periksa {
     private String rekomendasi;
     private static int idPeriksa;
     //private double bayarPeriksa;
+    private int noPer;
 
     public Periksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi) {
         this.namaDokter = d.getNama();
@@ -26,11 +27,11 @@ public class Periksa {
         this.indikasi = indikasi;
         this.rekomendasi = rekomendasi;
         idPeriksa++;
-        
+        this.noPer = idPeriksa;
     }
 
     public int getIDPeriksa(){
-        return idPeriksa;
+        return noPer;
     }
     
     public String getNamaDokter() {

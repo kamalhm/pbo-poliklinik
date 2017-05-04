@@ -56,11 +56,10 @@ public class Aplikasi {
         
     }
     
-    public void addPeriksa(Dokter dok, Pasien pas, Ruangan rua, String tglPer, String indikasi, String rekom) {
+    public void addPeriksa(Dokter d, Pasien p, Ruangan r, String tanggal, String indikasi, String rekomendasi) {
         
-        Periksa per = new Periksa(dok, pas, tglPer, indikasi, rekom);
-        listPeriksa.add(per);
-        db.insertPeriksa(per, dok, pas, rua);
+        Periksa per = new Periksa(d, p, tanggal, indikasi, rekomendasi);        
+        db.insertPeriksa(per, d, p, r);
     }
     
     public Dokter getDokter(String nama) {
