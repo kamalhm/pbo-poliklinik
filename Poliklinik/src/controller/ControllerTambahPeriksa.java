@@ -7,6 +7,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import view.TambahPeriksa;
 import model.Aplikasi;
 import model.*;
@@ -20,23 +21,40 @@ public class ControllerTambahPeriksa implements ActionListener{
     private TambahPeriksa view;
     
     public ControllerTambahPeriksa(){
+        app = new Aplikasi();
         view = new TambahPeriksa();
         view.addListener(this);
         view.setVisible(true);
-    }
-    public Dokter textToDokter(String text) {
+        ArrayList<Pasien> listPasien = app.getListPasien();
+        ArrayList<Dokter> listDokter = app.getListDokter();
+        ArrayList<Ruangan> listRuangan = app.getListRuangan();
+        for(Pasien p : listPasien){
+            view.isiComboPasien(p.getNama());            
+        }
         
+        for(Dokter d : listDokter){
+            view.isiComboDokter(d.getNama());            
+        }
+        
+        for (Ruangan r : listRuangan) {
+            view.isiComboRuangan(r.getNomor());
+        }
     }
+    
+    
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            app.addPeriksa(view.getTxFieldDokter(), view.getTxFieldPasien(), view.getTxFieldTanggalPeriksa(), view.getTxFieldIndikasi(), view.getTxFieldRekomendasi());
+            app.addPeriksa(app.getDokter(view.getDokterCombo()), app.getPasien(view.getPasienCombo()), app.getRuangan(view.getRuanganCombo()), view.getTxFieldTanggalPeriksa(), view.getTxFieldIndikasi(), view.getTxFieldRekomendasi());
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan cp = new ControllerPilihan();
             view.dispose();
         }
     }
+    
+    
+    
     
 }
 
