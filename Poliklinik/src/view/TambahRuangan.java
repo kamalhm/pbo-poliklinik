@@ -182,7 +182,7 @@ public class TambahRuangan extends javax.swing.JFrame {
     public JButton getBtnBack() {
         return btnBack;
     }
-
+    
     public int getTxFieldKapasitas() {
         return Integer.parseInt(txFieldKapasitas.getText());
     }

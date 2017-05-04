@@ -20,7 +20,7 @@ public class ControllerTambahRuangan implements ActionListener{
     private TambahRuangan view;
     
     public ControllerTambahRuangan(){
-        
+        app = new Aplikasi();
         view = new TambahRuangan();
         view.setVisible(true);
         view.addListener(this);
@@ -30,8 +30,11 @@ public class ControllerTambahRuangan implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAddRuang())) {
-            Ruangan rua = new Ruangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
-            app.addRuangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
+            //Ruangan rua = new Ruangan(view.getTxFieldNomor(), view.getTxFieldKapasitas());
+            String nomor = view.getTxFieldNomor();
+            int kapasitas = view.getTxFieldKapasitas();
+            app.addRuangan(nomor, kapasitas);
+            JOptionPane.showMessageDialog(null, "Ruangan berhasil ditambahkan.");
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan ch = new ControllerPilihan();
             view.dispose();

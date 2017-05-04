@@ -20,15 +20,14 @@ public class Aplikasi {
     
     Database db;
     
-//    public Aplikasi(){
-//        db = new Database();
-//        db.connect();
-//        listDokter = db.loadDokter();
-//        listPasien = db.loadPasien();
-//        listRuangan = db.loadRuangan();
-//        listPeriksa = db.loadPeriksa();
-//    }
-//    
+    public Aplikasi(){
+        db = new Database();
+        db.connect();
+        listDokter = db.loadDokter();
+        listPasien = db.loadPasien();
+        listRuangan = db.loadRuangan();
+    }
+    
     public void addDokter(String nama) {
         if (getDokter(nama) != null) {
             throw new IllegalArgumentException ("Nama telah dipakai.");
@@ -48,7 +47,7 @@ public class Aplikasi {
     }
     
     public void addRuangan(String nomor, int kapasitas) {
-        if (getRuangan(nomor) == null) {
+        if (getRuangan(nomor) != null) {
             throw new IllegalArgumentException ("Ruangan sudah ada.");
         }
         Ruangan rua = new Ruangan(nomor, kapasitas);
@@ -60,7 +59,7 @@ public class Aplikasi {
     public void addPeriksa(Dokter dok, Pasien pas, Ruangan rua, String tglPer, String indikasi, String rekom) {
         
         Periksa per = new Periksa(dok, pas, tglPer, indikasi, rekom);
-        //listPeriksa.add(per);
+        listPeriksa.add(per);
         db.insertPeriksa(per, dok, pas, rua);
     }
     
@@ -73,9 +72,9 @@ public class Aplikasi {
         return null;
     }
     
-    public Pasien getPasien(int idPasien) {
+    public Pasien getPasien(String nama) {
         for (Pasien p : listPasien) {
-            if (p.getIDPasien()== idPasien) {
+            if (p.getNama()== nama) {
                 return p;
             }
         }
