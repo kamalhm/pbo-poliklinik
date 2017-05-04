@@ -15,11 +15,23 @@ public class Pasien {
     private Periksa[] riwayatPeriksa;
     private int jumlahPeriksa;
     private static int idPasien = 0;
-
+    private int noPasien;
+    
+    public Pasien(int id,String nama){
+        this.nama = nama;
+        this.noPasien = id;
+    }
+    
     public Pasien(String nama) {
         this.nama = nama;
         idPasien++;
     }
+
+    public int getNoPasien() {
+        return noPasien;
+    }
+    
+    
 
     public int getIDPasien(){
         return idPasien;
@@ -52,11 +64,13 @@ public class Pasien {
         return riwayatPeriksa[i];
     }
 
-    public void addPeriksa(String namaD, String idPasien, String tanggal, String indikasi, String rekomendasi) {
-        Periksa entry = new Periksa(namaD, idPasien, tanggal, indikasi, rekomendasi);
+    public void addPeriksa(Dokter d, Pasien p, String tanggal, String indikasi, String rekomendasi) {
+        Periksa entry = new Periksa(d, p, tanggal, indikasi, rekomendasi);
         this.riwayatPeriksa[jumlahPeriksa] = entry;
         this.jumlahPeriksa++;
     }
     
-
+    public Periksa[] getListPeriksa(){
+        return riwayatPeriksa;
+    }
 }

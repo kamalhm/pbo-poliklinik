@@ -54,12 +54,13 @@ public class Database {
         }
     }
 
-    public void insertPeriksa(Periksa c, Dokter d, Pasien p) {
+    public void insertPeriksa(Periksa c, Dokter d, Pasien p, Ruangan r) {
         try {
-            String query = "insert into periksa(IDPeriksa, Dokter, IDPasien, TanggalPeriksa, Indikasi, Rekomendasi) values"
+            String query = "insert into periksa(IDPeriksa, Dokter, IDPasien, NomorRuang, TanggalPeriksa, Indikasi, Rekomendasi) values"
                     + "('" + c.getIDPeriksa() + "', "
                     + "'" + d.getNama() + "', "
                     + "'" + p.getNama() + "', "
+                    + "'" + r.getNomor() + "', "
                     + "'" + c.getTanggalPeriksa() + "', "
                     + "'" + c.getIndikasi() + "', "
                     + "'" + c.getRekomendasi() + "')";
@@ -97,13 +98,7 @@ public class Database {
             String query = "select * from dokter";
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                Dokter d = new Dokter(rs.getString(1));
-                Statement statement2 = connection.createStatement();
-                String query2 = "select * from periksa where namaD =" + d.getNama();
-                ResultSet rs2 = statement2.executeQuery(query2);
-                while (rs2.next()) {
-                    d.addPeriksa(rs2.getString(1),rs2.getString(2),rs2.getString(3),rs2.getString(4),rs2.getString(5));
-                }
+                Dokter d = new Dokter(rs.getString(1));                
                 listDokter.add(d);
             }
             return listDokter;
@@ -120,16 +115,89 @@ public class Database {
             String query = "select * from pasien";
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                Pasien p = new Pasien(rs.getString(1));
-                Statement statement2 = connection.createStatement();
-                String query2 = "select * from periksa where IDPasien=" + p.getIDPasien();
-                ResultSet rs2 = statement2.executeQuery(query2);
-                while (rs2.next()) {                    
-                    Periksa c = new Periksa(rs2.getString(1),rs2.getString(2),rs2.getString(3),rs2.getString(4),rs2.getString(5));
-                }
+                Pasien p = new Pasien(rs.getInt(1), rs.getString(2));                
                 listPasien.add(p);
             }
             return listPasien;
+            
+        } catch (Exception e) {
+            throw new IllegalArgumentException("terjadi kesalahan bung");
+        }
+
+    }
+    
+    
+    
+    public ArrayList<Ruangan> loadRuangan(){
+        try {
+            ArrayList<Ruangan> listRuangan = new ArrayList<>();
+            String query = "select * from Periksa";
+            ResultSet rs = statement.executeQuery(query);
+            
+            while (rs.next()) {
+                Statement statement2 = connection.createStatement();
+                Ruangan r = null;
+                String query2 = "select * from ruangan where Nomor = '"+rs.getString(4)+"'";
+                ResultSet rs2 = statement2.executeQuery(query2);
+                while(rs2.next()){
+                    r = new Ruangan(rs2.getString(1),rs2.getInt(2));  
+                    Statement statement3 = connection.createStatement();
+                    String query3 = "select * from Dokter where namaD = '"+rs.getString(2)+"'";
+                    ResultSet rs3 = statement3.executeQuery(query3);
+                    while(rs3.next()){
+                        Dokter d = new Dokter(rs3.getString(1));
+                        r.addDokter(d);                     
+                    }
+                    listRuangan.add(r);                    
+                }                
+            }            
+            return listRuangan;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("terjadi kesalahan bung");
+        }
+    }
+    
+    
+    
+    public Periksa[] loadPeriksaD(Dokter d){
+        try {            
+            Pasien p = null;            
+            String query = "select * from periksa";
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                
+                Statement statement3 = connection.createStatement();
+                String query3 = "select * from pasien where IDPasien='"+ rs.getString(3)+"'";
+                ResultSet rs3 = statement3.executeQuery(query3);
+                while(rs3.next()){
+                    p = new Pasien(rs3.getInt(1), rs3.getString(2));
+                }
+                
+                d.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5));                
+            }
+            return d.getListPeriksa();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("terjadi kesalahan bung");
+        }
+
+    }
+    
+    public Periksa[] loadPeriksaP(Pasien p){
+        try {            
+            Dokter d = null;            
+            String query = "select * from periksa";
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                
+                Statement statement3 = connection.createStatement();
+                String query3 = "select * from dokter where namaD='"+ rs.getString(2)+"'";
+                ResultSet rs3 = statement3.executeQuery(query3);
+                while(rs3.next()){
+                    d = new Dokter(rs3.getString(1));
+                }                
+                p.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5));                
+            }
+            return p.getListPeriksa();
         } catch (Exception e) {
             throw new IllegalArgumentException("terjadi kesalahan bung");
         }

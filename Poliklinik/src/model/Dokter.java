@@ -46,8 +46,8 @@ public class Dokter {
         jumlahPasien++;
     }
 
-    public void addPeriksa(String namaD, String idPasien, String tanggalPeriksa, String indikasi, String rekomendasi){
-        Periksa c = new Periksa(namaD, idPasien, tanggalPeriksa, indikasi, rekomendasi);
+    public void addPeriksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi){
+        Periksa c = new Periksa(d, p, tanggalPeriksa, indikasi, rekomendasi);
         daftarPeriksa[jumlahPeriksa] = c;
         jumlahPeriksa++;
     }
@@ -58,6 +58,10 @@ public class Dokter {
 
     public Pasien getPasien(int i) {
         return daftarPasien[i];
+    }
+    
+    public Periksa[] getListPeriksa(){
+        return daftarPeriksa;
     }
     
 }

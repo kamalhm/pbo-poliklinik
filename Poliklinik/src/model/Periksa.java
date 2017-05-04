@@ -12,16 +12,16 @@ package model;
 public class Periksa {
 
     private String namaDokter;
-    private String idPasien;
+    private int idPasien;
     private String tanggalPeriksa;
     private String indikasi;
     private String rekomendasi;
     private static int idPeriksa;
     //private double bayarPeriksa;
 
-    public Periksa(String namaD, String idPasien, String tanggalPeriksa, String indikasi, String rekomendasi) {
-        this.namaDokter = namaD;
-        this.idPasien = idPasien;
+    public Periksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi) {
+        this.namaDokter = d.getNama();
+        this.idPasien = p.getIDPasien();
         this.tanggalPeriksa = tanggalPeriksa;
         this.indikasi = indikasi;
         this.rekomendasi = rekomendasi;
@@ -37,7 +37,7 @@ public class Periksa {
         return namaDokter;
     }
     
-    public String getIDPasien() {
+    public int getIDPasien() {
         return idPasien;
     }
 
