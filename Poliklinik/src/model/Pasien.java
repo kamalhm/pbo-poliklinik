@@ -52,8 +52,8 @@ public class Pasien {
         return riwayatPeriksa[i];
     }
 
-    public void addPeriksa(Pasien pas, String tanggalPeriksa, String indikasi, Dokter dok, String rekomendasi) {
-        Periksa entry = new Periksa(dok, this, tanggalPeriksa, indikasi, rekomendasi);
+    public void addPeriksa(String namaD, String idPasien, String tanggal, String indikasi, String rekomendasi) {
+        Periksa entry = new Periksa(namaD, idPasien, tanggal, indikasi, rekomendasi);
         this.riwayatPeriksa[jumlahPeriksa] = entry;
         this.jumlahPeriksa++;
     }

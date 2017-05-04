@@ -99,11 +99,10 @@ public class Database {
             while (rs.next()) {
                 Dokter d = new Dokter(rs.getString(1));
                 Statement statement2 = connection.createStatement();
-                String query2 = "select * from dokter where NamaD=" + d.getNama();
+                String query2 = "select * from periksa where namaD =" + d.getNama();
                 ResultSet rs2 = statement2.executeQuery(query2);
                 while (rs2.next()) {
-                    Pasien p = new Pasien(rs2.getString(1));
-                    d.addPasien(p);
+                    d.addPeriksa(rs2.getString(1),rs2.getString(2),rs2.getString(3),rs2.getString(4),rs2.getString(5));
                 }
                 listDokter.add(d);
             }
@@ -126,7 +125,7 @@ public class Database {
                 String query2 = "select * from periksa where IDPasien=" + p.getIDPasien();
                 ResultSet rs2 = statement2.executeQuery(query2);
                 while (rs2.next()) {                    
-                    p.addPeriksa(rs2.getString(1), rs2.getString(2), rs2.getString(3),rs2.getString(4),rs2.getString(5));
+                    Periksa c = new Periksa(rs2.getString(1),rs2.getString(2),rs2.getString(3),rs2.getString(4),rs2.getString(5));
                 }
                 listPasien.add(p);
             }
