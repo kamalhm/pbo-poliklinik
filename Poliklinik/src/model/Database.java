@@ -56,8 +56,8 @@ public class Database {
 
     public void insertPeriksa(Periksa c, Dokter d, Pasien p, Ruangan r) {
         try {
-            String query = "insert into periksa(IDPeriksa, Dokter, IDPasien, NomorRuang, TanggalPeriksa, Indikasi, Rekomendasi) values"
-                    + "('" + c.getIDPeriksa() + "', "
+            String query = "insert into periksa(IDPeriksa,Dokter,IDPasien,NomorRuang,TanggalPeriksa,Indikasi,Rekomendasi) values"
+                    + "('" + c.getIDPeriksa()+ "', "
                     + "'" + d.getNama() + "', "
                     + "'" + p.getIDPasien()+ "', "
                     + "'" + r.getNomor() + "', "
@@ -66,7 +66,7 @@ public class Database {
                     + "'" + c.getRekomendasi() + "')";
             statement.execute(query);
         } catch (Exception e) {
-            throw new IllegalArgumentException("terjadi kesalahan, cek insertPeriksa");
+            throw new IllegalArgumentException("terjadi kesalahan, cek insertsini lagi");
         }
     }
 

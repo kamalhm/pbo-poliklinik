@@ -21,6 +21,7 @@ public class Pasien {
     public Pasien(String nama) {
         this.nama = nama;
         idPasien++;
+        this.noPasien = idPasien;
     }
     
     
