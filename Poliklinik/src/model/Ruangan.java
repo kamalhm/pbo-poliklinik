@@ -30,9 +30,13 @@ public class Ruangan {
             System.out.println("Ruangan sudah memenuhi kapasitas");
     }
     
-    public void hpsDokter() {
-        jumlahDokter--;
-    }
+
+//    public Dokter getDokter() {
+//        for (Dokter d : daftarDokter){
+//            return d;
+//        }
+//        return null;
+//    }
 
     public String getNomor(){
         return nomor;
@@ -40,5 +44,10 @@ public class Ruangan {
     
     public int getKapasitas(){
         return kapasitas;
+    }
+    
+    @Override
+    public String toString() {
+        return this.getKapasitas()+ " dokter.";
     }
 }

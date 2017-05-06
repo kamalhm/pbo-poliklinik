@@ -31,7 +31,7 @@ public class ControllerTambahPasien implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            app.addPasien(view.getTxFieldNama());
+            app.addPasien(view.getTxFieldId(),view.getTxFieldNama());
             JOptionPane.showMessageDialog(null, "Pasien berhasil ditambahkan.");
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan ch = new ControllerPilihan();

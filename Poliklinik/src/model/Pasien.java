@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author User
@@ -12,49 +14,48 @@ package model;
 public class Pasien {
 
     private String nama;
-    private Periksa[] riwayatPeriksa;
-    private int jumlahPeriksa;
-    private static int idPasien = 0;
-    private int noPasien;
-    
-    
-    public Pasien(String nama) {
-        this.nama = nama;
-        idPasien++;
-        this.noPasien = idPasien;
-    }
-    
-    
-    public Pasien(int id,String nama){
-        this.nama = nama;
-        this.noPasien = id;
-    }
-    
+    private Periksa[] riwayatPeriksa ;
+    private int jumlahPeriksa ;
+    private String idPasien;
 
-    public int getNoPasien() {
-        return noPasien;
+    
+    public Pasien(String id, String nama) {
+        this.nama = nama;
+        this.idPasien = id;
+        this.riwayatPeriksa = new Periksa[100];
     }
-    
-    
 
-    public int getIDPasien(){
+    public String getIDPasien(){
         return idPasien;
     }
+
     public String getNama() {
         return nama;
     }
 
     public String getRekomendasiTerakhir() {
-        return this.riwayatPeriksa[this.jumlahPeriksa - 1].getRekomendasi();
+        if (this.jumlahPeriksa >= 0 ) {
+            return riwayatPeriksa[jumlahPeriksa].getRekomendasi();
+            
+        } else {
+            return "Pasien belum pernah diperiksa rekomendasi.";
+        }
+    
     }
 
     public String getIndikasiTerakhir() {
-        return this.riwayatPeriksa[this.jumlahPeriksa - 1].getIndikasi();
+        if (this.jumlahPeriksa >= 0 ) {
+            return riwayatPeriksa[jumlahPeriksa].getIndikasi();
+            
+        } else {
+            return "Pasien belum pernah diperiksa indikasi.";
+        }
+        
     }
 
     public String getTanggalTerakhirPeriksa() {
-        if (this.jumlahPeriksa > 0) {
-            return this.riwayatPeriksa[this.jumlahPeriksa - 1].getTanggalPeriksa();
+        if (this.jumlahPeriksa >= 0 ) {
+            return riwayatPeriksa[jumlahPeriksa].getTanggalPeriksa();
         } else {
             return "Pasien belum pernah diperiksa.";
         }
@@ -68,13 +69,40 @@ public class Pasien {
         return riwayatPeriksa[i];
     }
 
-    public void addPeriksa(Dokter d, Pasien p, String tanggal, String indikasi, String rekomendasi) {
-        Periksa entry = new Periksa(d, p, tanggal, indikasi, rekomendasi);
+    public void setJumlahPeriksa(int jumlahPeriksa) {
+        this.jumlahPeriksa = jumlahPeriksa;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    public void addPeriksa(Dokter d, Pasien p, String tanggal, String indikasi, String rekomendasi, String idPeriksa) {
+        Periksa entry = new Periksa(d, p, tanggal, indikasi, rekomendasi,idPeriksa);        
         this.riwayatPeriksa[jumlahPeriksa] = entry;
         this.jumlahPeriksa++;
+        
     }
-    
-    public Periksa[] getListPeriksa(){
+
+    public Periksa[] getListPeriksa() {
         return riwayatPeriksa;
     }
+
+    @Override
+    public String toString() {
+        String s = "Tanggal Periksa: " +  this.getTanggalTerakhirPeriksa() +"\n"
+                + "Indikasi : " + this.getIndikasiTerakhir() + "\n"
+                + "Rekomendasi : " + this.getRekomendasiTerakhir() + "\n";
+
+        return s;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+    
+    
 }

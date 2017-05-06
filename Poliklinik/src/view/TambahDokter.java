@@ -33,12 +33,11 @@ public class TambahDokter extends javax.swing.JFrame {
 
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         txFieldNama = new javax.swing.JTextField();
-        txFieldJumlah = new javax.swing.JTextField();
         btnAdd = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,17 +45,9 @@ public class TambahDokter extends javax.swing.JFrame {
 
         jLabel16.setText("Nama");
 
-        jLabel17.setText("Jumlah Kesanggupan");
-
         txFieldNama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txFieldNamaActionPerformed(evt);
-            }
-        });
-
-        txFieldJumlah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txFieldJumlahActionPerformed(evt);
             }
         });
 
@@ -67,6 +58,8 @@ public class TambahDokter extends javax.swing.JFrame {
 
         btnBack.setText("Kembali");
 
+        jLabel1.setText("P.S. : Setiap Dokter hanya bisa menghandle 25 pasien");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -74,25 +67,25 @@ public class TambahDokter extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(139, Short.MAX_VALUE)
+                        .addContainerGap(146, Short.MAX_VALUE)
                         .addComponent(jLabel15)
                         .addGap(56, 56, 56))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addGap(84, 84, 84)
+                                .addComponent(txFieldNama))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(btnBack)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAdd))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel16))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txFieldNama)
-                                    .addComponent(txFieldJumlah))))))
+                                .addComponent(btnAdd)))))
                 .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(139, 139, 139))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,15 +96,12 @@ public class TambahDokter extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(txFieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txFieldJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnBack))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBack)
+                    .addComponent(btnAdd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -134,10 +124,6 @@ public class TambahDokter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txFieldJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txFieldJumlahActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txFieldJumlahActionPerformed
-
     private void txFieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txFieldNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txFieldNamaActionPerformed
@@ -150,9 +136,7 @@ public class TambahDokter extends javax.swing.JFrame {
         return btnBack;
     }
 
-    public String getTxFieldJumlah() {
-        return txFieldJumlah.getText();
-    }
+    
 
     public String getTxFieldNama() {
         return txFieldNama.getText();
@@ -168,11 +152,10 @@ public class TambahDokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField txFieldJumlah;
     private javax.swing.JTextField txFieldNama;
     // End of variables declaration//GEN-END:variables
 }

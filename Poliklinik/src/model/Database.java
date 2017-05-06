@@ -57,16 +57,16 @@ public class Database {
     public void insertPeriksa(Periksa c, Dokter d, Pasien p, Ruangan r) {
         try {
             String query = "insert into periksa(IDPeriksa,Dokter,IDPasien,NomorRuang,TanggalPeriksa,Indikasi,Rekomendasi) values"
-                    + "('" + c.getIDPeriksa()+ "', "
+                    + "('" + c.getIDPeriksa() + "', "
                     + "'" + d.getNama() + "', "
-                    + "'" + p.getIDPasien()+ "', "
+                    + "'" + p.getIDPasien() + "', "
                     + "'" + r.getNomor() + "', "
                     + "'" + c.getTanggalPeriksa() + "', "
                     + "'" + c.getIndikasi() + "', "
                     + "'" + c.getRekomendasi() + "')";
             statement.execute(query);
         } catch (Exception e) {
-            throw new IllegalArgumentException("terjadi kesalahan, cek insertsini lagi");
+            throw new IllegalArgumentException("terjadi kesalahan, cek inserts ini lagi");
         }
     }
 
@@ -115,7 +115,7 @@ public class Database {
             String query = "select * from pasien";
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
-                Pasien p = new Pasien(rs.getInt(1), rs.getString(2));
+                Pasien p = new Pasien(rs.getString(1), rs.getString(2));
                 listPasien.add(p);
             }
             return listPasien;
@@ -185,14 +185,14 @@ public class Database {
                 String query3 = "select * from pasien where IDPasien='" + rs.getString(3) + "'";
                 ResultSet rs3 = statement3.executeQuery(query3);
                 while (rs3.next()) {
-                    p = new Pasien(rs3.getInt(1), rs3.getString(2));
+                    p = new Pasien(rs3.getString(1), rs3.getString(2));
                 }
 
-                d.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5));
+                d.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(1));
             }
             return d.getListPeriksa();
         } catch (Exception e) {
-            throw new IllegalArgumentException("terjadi kesalahan bung");
+            throw new IllegalArgumentException("terjadi kesalahan load periksad");
         }
 
     }
@@ -210,7 +210,7 @@ public class Database {
                 while (rs3.next()) {
                     d = new Dokter(rs3.getString(1));
                 }
-                p.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5));
+                p.addPeriksa(d, p, rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(1));
             }
             return p.getListPeriksa();
         } catch (Exception e) {
@@ -218,5 +218,5 @@ public class Database {
         }
 
     }
-
 }
+ 
