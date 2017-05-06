@@ -37,11 +37,11 @@ public class Aplikasi {
         db.insertDokter(dok);
     }
     
-    public void addPasien(String nama) {
+    public void addPasien(String id, String nama) {
         if (getPasien(nama)!= null) {
             throw new IllegalArgumentException ("Nama pasien sudah dipakai.");
         }
-        Pasien pas = new Pasien(nama);
+        Pasien pas = new Pasien(id, nama);
         listPasien.add(pas);
         db.insertPasien(pas);
     }
@@ -56,9 +56,9 @@ public class Aplikasi {
         
     }
     
-    public void addPeriksa(Dokter d, Pasien p, Ruangan r, String tanggal, String indikasi, String rekomendasi) {
+    public void addPeriksa(Dokter d, Pasien p, Ruangan r, String tanggal, String indikasi, String rekomendasi,String idPeriksa) {
         
-        Periksa per = new Periksa(d, p, tanggal, indikasi, rekomendasi);        
+        Periksa per = new Periksa(d, p, tanggal, indikasi, rekomendasi,idPeriksa);        
         db.insertPeriksa(per, d, p, r);
     }
     
@@ -89,7 +89,7 @@ public class Aplikasi {
         return null;
     }
     
-    public Periksa getPeriksa(int idPeriksa) {
+    public Periksa getPeriksa(String idPeriksa) {
         for (Periksa p : listPeriksa) {
             if (p.getIDPeriksa() == idPeriksa) {
                 return p;
@@ -129,9 +129,14 @@ public class Aplikasi {
         return listRuangan;
     }
 
-    public Periksa[] getListPeriksa(Dokter d) {
+    public ArrayList<Ruangan> getListRuanganDok() {
+        listRuangan = db.loadRuanganDok();
+        return listRuangan;
+    }
+    
+    public Periksa[] getListPeriksa(Pasien p) {
         
-        listPeriksa = db.loadPeriksaD(d);
+        listPeriksa = db.loadPeriksaP(p);
         return listPeriksa;
     }
     

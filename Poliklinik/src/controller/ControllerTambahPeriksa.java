@@ -8,6 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import view.TambahPeriksa;
 import model.Aplikasi;
 import model.*;
@@ -28,6 +29,7 @@ public class ControllerTambahPeriksa implements ActionListener{
         ArrayList<Pasien> listPasien = app.getListPasien();
         ArrayList<Dokter> listDokter = app.getListDokter();
         ArrayList<Ruangan> listRuangan = app.getListRuangan();
+        
         for(Pasien p : listPasien){
             view.isiComboPasien(p.getNama());            
         }
@@ -46,7 +48,9 @@ public class ControllerTambahPeriksa implements ActionListener{
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         if (source.equals(view.getBtnAdd())) {
-            app.addPeriksa(app.getDokter(view.getDokterCombo()), app.getPasien(view.getPasienCombo()), app.getRuangan(view.getRuanganCombo()), view.getTxFieldTanggalPeriksa(), view.getTxFieldIndikasi(), view.getTxFieldRekomendasi());
+            app.addPeriksa(app.getDokter(view.getDokterCombo()), app.getPasien(view.getPasienCombo()), app.getRuangan(view.getRuanganCombo()), view.getTxFieldTanggalPeriksa(), view.getTxFieldIndikasi(), view.getTxFieldRekomendasi(), view.getTxFieldId());
+            JOptionPane.showMessageDialog(null, "Data Periksa berhasil ditambahkan.");
+            
         } else if (source.equals(view.getBtnBack())) {
             ControllerPilihan cp = new ControllerPilihan();
             view.dispose();

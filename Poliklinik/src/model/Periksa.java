@@ -12,33 +12,31 @@ package model;
 public class Periksa {
 
     private String namaDokter;
-    private int idPasien;
+    private String idPasien;
     private String tanggalPeriksa;
     private String indikasi;
     private String rekomendasi;
-    private static int idPeriksa;
-    //private double bayarPeriksa;
-    private int noPer;
+    private String idPeriksa;
 
-    public Periksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi) {
+    public Periksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi, String idPeriksa) {
         this.namaDokter = d.getNama();
         this.idPasien = p.getIDPasien();
         this.tanggalPeriksa = tanggalPeriksa;
         this.indikasi = indikasi;
         this.rekomendasi = rekomendasi;
-        idPeriksa++;
-        this.noPer = idPeriksa;
+        this.idPeriksa = idPeriksa;
+              
     }
 
-    public int getIDPeriksa(){
-        return noPer;
+    public String getIDPeriksa(){
+        return idPeriksa;
     }
     
     public String getNamaDokter() {
         return namaDokter;
     }
     
-    public int getIDPasien() {
+    public String getIDPasien() {
         return idPasien;
     }
 
@@ -54,4 +52,12 @@ public class Periksa {
         return rekomendasi;
     }
 
+    @Override
+    public String toString() {
+        String s = "Tanggal Periksa: " +  this.getTanggalPeriksa() +"\n"
+                + "Indikasi : " + this.getIndikasi() + "\n"
+                + "Rekomendasi : " + this.getRekomendasi() + "\n";
+
+        return s;
+    }
 }

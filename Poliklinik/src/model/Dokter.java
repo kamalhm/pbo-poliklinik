@@ -15,7 +15,7 @@ public class Dokter {
     private Pasien[] daftarPasien;
     private int jumlahPasien;
     private Periksa[] daftarPeriksa;
-    private int jumlahPeriksa;
+    private static int jumlahPeriksa;
 
 //    public Dokter(String nama, int maxJumlahPasien) {
 //        this.nama = nama;
@@ -29,8 +29,7 @@ public class Dokter {
         this.nama = nama;
         this.daftarPasien = new Pasien[25];
         this.jumlahPasien = 0;
-        this.daftarPeriksa = new Periksa[125];
-        this.jumlahPeriksa = 0;
+        this.daftarPeriksa = new Periksa[125];;
     }
 
     public String getNama() {
@@ -46,10 +45,11 @@ public class Dokter {
         jumlahPasien++;
     }
 
-    public void addPeriksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi){
-        Periksa c = new Periksa(d, p, tanggalPeriksa, indikasi, rekomendasi);
+    public void addPeriksa(Dokter d, Pasien p, String tanggalPeriksa, String indikasi, String rekomendasi,String idPeriksa){
+        Periksa c = new Periksa(d, p, tanggalPeriksa, indikasi, rekomendasi, idPeriksa);
+        
         daftarPeriksa[jumlahPeriksa] = c;
-        jumlahPeriksa++;
+        this.jumlahPeriksa++;
     }
     
     public Periksa getPeriksa(int i) {
@@ -62,6 +62,11 @@ public class Dokter {
     
     public Periksa[] getListPeriksa(){
         return daftarPeriksa;
+    }
+    
+    @Override
+    public String toString() {
+        return this.getNama();
     }
     
 }
