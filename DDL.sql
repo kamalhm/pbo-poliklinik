@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2017 at 08:27 AM
+-- Generation Time: May 08, 2017 at 01:00 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -17,19 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `tubes_pbo`
+-- Database: `tubespbo`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `ddr`
---
-
-CREATE TABLE IF NOT EXISTS `ddr` (
-  `IDPeriksa` varchar(10) NOT NULL,
-  `Nomor Ruangan` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -42,6 +31,14 @@ CREATE TABLE IF NOT EXISTS `dokter` (
   `Kesanggupan` int(2) NOT NULL DEFAULT '25'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `dokter`
+--
+
+INSERT INTO `dokter` (`NamaD`, `Kesanggupan`) VALUES
+('diah', 25),
+('victor', 25);
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +50,14 @@ CREATE TABLE IF NOT EXISTS `pasien` (
   `NamaP` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pasien`
+--
+
+INSERT INTO `pasien` (`IDPasien`, `NamaP`) VALUES
+('11', 'kamal'),
+('12', 'vini');
+
 -- --------------------------------------------------------
 
 --
@@ -63,10 +68,21 @@ CREATE TABLE IF NOT EXISTS `periksa` (
   `IDPeriksa` varchar(10) NOT NULL,
   `Dokter` varchar(25) NOT NULL,
   `IDPasien` varchar(10) NOT NULL,
-  `Tanggal Periksa` date NOT NULL,
+  `NomorRuang` varchar(10) DEFAULT NULL,
+  `TanggalPeriksa` varchar(10) NOT NULL,
   `Indikasi` varchar(255) NOT NULL,
   `Rekomendasi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `periksa`
+--
+
+INSERT INTO `periksa` (`IDPeriksa`, `Dokter`, `IDPasien`, `NomorRuang`, `TanggalPeriksa`, `Indikasi`, `Rekomendasi`) VALUES
+('9998', 'diah', '11', 'a1', '4454', '666', '767766'),
+('periksa1', 'victor', '11', 'a1', '05-05-2017', 'sehat', 'jaga kesehatan'),
+('periksa2', 'victor', '12', 'a2', '29-02-2017', 'sakit berat', 'kurangi makan'),
+('periksa3', 'diah', '11', 'a2', '28-12-1998', 'sakit sehat', 'sehat ehat');
 
 -- --------------------------------------------------------
 
@@ -80,14 +96,16 @@ CREATE TABLE IF NOT EXISTS `ruangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `ruangan`
 --
 
+INSERT INTO `ruangan` (`Nomor`, `Kapasitas`) VALUES
+('a1', 10),
+('a2', 12);
+
 --
--- Indexes for table `ddr`
+-- Indexes for dumped tables
 --
-ALTER TABLE `ddr`
- ADD KEY `IDPeriksa` (`IDPeriksa`,`Nomor Ruangan`), ADD KEY `Nomor Ruangan` (`Nomor Ruangan`);
 
 --
 -- Indexes for table `dokter`
@@ -105,7 +123,7 @@ ALTER TABLE `pasien`
 -- Indexes for table `periksa`
 --
 ALTER TABLE `periksa`
- ADD PRIMARY KEY (`IDPeriksa`), ADD KEY `Dokter` (`Dokter`), ADD KEY `IDPasien` (`IDPasien`);
+ ADD PRIMARY KEY (`IDPeriksa`), ADD KEY `Dokter` (`Dokter`), ADD KEY `IDPasien` (`IDPasien`), ADD KEY `NomorRuang` (`NomorRuang`);
 
 --
 -- Indexes for table `ruangan`
@@ -118,18 +136,12 @@ ALTER TABLE `ruangan`
 --
 
 --
--- Constraints for table `ddr`
---
-ALTER TABLE `ddr`
-ADD CONSTRAINT `ddrPeriksa` FOREIGN KEY (`IDPeriksa`) REFERENCES `periksa` (`IDPeriksa`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `ddrRuang` FOREIGN KEY (`Nomor Ruangan`) REFERENCES `ruangan` (`Nomor`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `periksa`
 --
 ALTER TABLE `periksa`
 ADD CONSTRAINT `DokterPeriksa` FOREIGN KEY (`Dokter`) REFERENCES `dokter` (`NamaD`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `PasienPeriksa` FOREIGN KEY (`IDPasien`) REFERENCES `pasien` (`IDPasien`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `PasienPeriksa` FOREIGN KEY (`IDPasien`) REFERENCES `pasien` (`IDPasien`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `PeriksaRuang` FOREIGN KEY (`NomorRuang`) REFERENCES `ruangan` (`Nomor`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
