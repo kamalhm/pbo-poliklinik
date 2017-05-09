@@ -7,11 +7,13 @@ package view;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import model.Pasien;
 import model.Periksa;
+import model.*;
 
 /**
  *
@@ -19,6 +21,7 @@ import model.Periksa;
  */
 public class TampilanPasien extends javax.swing.JFrame {
 
+    String a;
     /**
      * Creates new form TampilanPasien
      */
@@ -201,65 +204,52 @@ public class TampilanPasien extends javax.swing.JFrame {
         return btnMenuAdmin;
     }
 
-    
-    
-   
-    
-    
-    
     public JTextField getTxFieldRuanganObj() {
         return txFieldRuangan;
     }
-    
-    public void setListPasien(String[] p){
+
+    public void setListPasien(String[] p) {
         listPasien.setListData(p);
     }
-    
-    
-    
-    
-    
-    
-    public void setTextPasien(String[] daftarPasien){
+
+    public void setTextPasien(String[] daftarPasien) {
         listPasien.setListData(daftarPasien);
     }
+
+//    public void setTextPasienDetil(Periksa[] c) {
+//        txDetilArea.setText(c.toString());
+//
+//    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    public void setTextPasienDetil(Periksa[] c){
-            txDetilArea.setText(c.toString());
+    public void setTextPasienDetil(ArrayList<HasilPeriksa> hp) {
+        //txDetilArea.setText(c.toString());
+        //String a;
         
+        for( int i = 0; i<hp.size(); i++){
+            a = "\n"+a+hp.get(i);
+            System.out.println("__________________");
+        }
+        txDetilArea.setText(a);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    public void addMouseAdapter(MouseAdapter e){
+
+    //==
+    public void setTextHasilPeriksa(String t) {
+        txDetilArea.setText(t);
+    }
+
+    public void addMouseAdapter(MouseAdapter e) {
         listPasien.addMouseListener(e);
     }
-    
-    
-    
-    public int getSelectedPasien(){
+
+    public int getSelectedPasien() {
         return listPasien.getSelectedIndex();
     }
-    
-    
-    
-    public JList<String> getListPasien(){
+
+    public JList<String> getListPasien() {
         return listPasien;
     }
-    
+
     public void setTxAreaRuangan(String t) {
         txAreaRuangan.setText(t);
     }
@@ -268,13 +258,12 @@ public class TampilanPasien extends javax.swing.JFrame {
         return txFieldRuangan.getText();
     }
 
-    
     public void addListener(ActionListener al) {
         btnCariIDPasien.addActionListener(al);
         btnCariNoRuangan.addActionListener(al);
         btnMenuAdmin.addActionListener(al);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCariIDPasien;
     private javax.swing.JButton btnCariNoRuangan;
