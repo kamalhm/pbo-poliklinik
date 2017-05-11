@@ -1,0 +1,57 @@
+HasilPeriksa.java
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
+
+/**
+ *
+ * @author Mahmud
+ */
+public class HasilPeriksa {
+
+    private String namaDokter;
+    private String idPasien;
+    private String tanggalPeriksa;
+    private String indikasi;
+    private String rekomendasi;
+    private String idPeriksa;
+    
+        public String getIDPeriksa(){
+        return idPeriksa;
+    }
+    
+    public String getNamaDokter() {
+        return namaDokter;
+    }
+    
+    public String getIDPasien() {
+        return idPasien;
+    }
+
+    public String getTanggalPeriksa() {
+        return tanggalPeriksa;
+    }
+
+    public String getIndikasi() {
+        return indikasi;
+    }
+
+    public String getRekomendasi() {
+        return rekomendasi;
+    }
+
+    @Override
+    public String toString() {
+        String s = "Tanggal Periksa: " +  this.getTanggalPeriksa() +"\n"
+                + "Indikasi : " + this.getIndikasi() + "\n"
+                + "Rekomendasi : " + this.getRekomendasi() + "\n";
+
+        return s;
+    }
+    
+    
+}

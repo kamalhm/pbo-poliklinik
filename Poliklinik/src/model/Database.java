@@ -17,7 +17,7 @@ import java.util.ArrayList;
  */
 public class Database {
 
-    private String server = "jdbc:mysql://localhost:3306/tubespbo";
+    private String server = "jdbc:mysql://localhost:3306/dbpoli";
     private String dbuser = "root";
     private String dbpasswd = "";
     private Statement statement = null;
@@ -109,6 +109,37 @@ public class Database {
 
     }
 
+//    public ArrayList<HasilPeriksa> loadHasilPeriksa() {
+//        try {
+//            ArrayList<HasilPeriksa> listHasilPeriksa = new ArrayList<>();
+//            String query = "select * from periksa";
+//            ResultSet rs = statement.executeQuery(query);
+//            while (rs.next()) {
+//                HasilPeriksa hp = new HasilPeriksa(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(4), rs.getString(5), rs.getString(6));
+//                listHasilPeriksa.add(hp);
+//            }
+//            return listHasilPeriksa;
+//        } catch (Exception e) {
+//            throw new IllegalArgumentException("Terjadi kesalahan load hasil periksa");
+//        }
+//    }
+    
+    
+    public ArrayList<HasilPeriksa> loadHasilPeriksa(String idPas) {
+        try {
+            ArrayList<HasilPeriksa> listHasilPeriksa = new ArrayList<>();
+            String query = "select * from periksa where IDPasien ='" + idPas+"'";
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                HasilPeriksa hp = new HasilPeriksa(rs.getString("IDPeriksa"), rs.getString("Dokter"), rs.getString("IDPasien"), rs.getString("NomorRuang"), rs.getString("TanggalPeriksa"), rs.getString("Indikasi"), rs.getString("Rekomendasi"));
+                listHasilPeriksa.add(hp);
+            }
+            return listHasilPeriksa;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Terjadi kesalahan load hasil periksa");
+        }
+    }
+    
     public ArrayList<Pasien> loadPasien() {
         try {
             ArrayList<Pasien> listPasien = new ArrayList<>();
@@ -219,4 +250,3 @@ public class Database {
 
     }
 }
- 

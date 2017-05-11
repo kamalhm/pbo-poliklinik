@@ -17,6 +17,7 @@ public class Aplikasi {
     ArrayList<Pasien> listPasien;
     ArrayList<Ruangan> listRuangan;
     Periksa[] listPeriksa;
+    ArrayList<HasilPeriksa> listHasilPeriksa;
     
     Database db;
     
@@ -118,6 +119,19 @@ public class Aplikasi {
         listDokter = db.loadDokter();
         return listDokter;
     }
+    
+    public ArrayList<HasilPeriksa> getHasilPeriksa(String idPas) {
+        ArrayList<HasilPeriksa> lhp = db.loadHasilPeriksa(idPas);
+        //listHasilPeriksa = db.loadHasilPeriksa();
+        return lhp;
+    }
+    
+//    public HasilPeriksa getHasilPeriksaDetail(String idPas) {
+//        for ( int i = 0; i<listHasilPeriksa.size(); i++) {
+//            HasilPeriksa hp = listHasilPeriksa.get(i);
+//            if (hp.getIDPasien())
+//        }
+//    }
 
     public ArrayList<Pasien> getListPasien() {
         listPasien = db.loadPasien();
